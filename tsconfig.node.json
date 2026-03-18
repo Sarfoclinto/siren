@@ -6,13 +6,17 @@
     "module": "ESNext",
     "types": ["node"],
     "skipLibCheck": true,
+    "composite": true,
 
     /* Bundler mode */
     "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
+    // "allowImportingTsExtensions": true,
     "verbatimModuleSyntax": true,
     "moduleDetection": "force",
-    "noEmit": true,
+
+    /* noEmit REMOVED — it conflicts with composite: true.
+       composite requires TypeScript to emit .tsbuildinfo files.
+       tsconfig.app.json referencing this caused the TS error. */
 
     /* Linting */
     "strict": true,

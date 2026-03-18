@@ -4,7 +4,7 @@ import { Toaster } from "sonner";
 const Provider: FC<PropsWithChildren> = ({ children }) => {
   return (
     <React.Suspense>
-      <Toaster />
+      <Toaster position="top-right" richColors />
       {children}
     </React.Suspense>
   );

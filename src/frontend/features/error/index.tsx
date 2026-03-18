@@ -4,15 +4,14 @@ import {
   useNavigate,
   useRouteError,
 } from "react-router-dom";
-import { Button } from "antd";
-import Section from "@/components/custom/section";
 import { AlertOctagonIcon } from "lucide-react";
-import { getUserDashboardRoute } from "@/utils/auth";
-import paths from "@/config/routes";
+import paths from "@frontend/config/routes";
+import Section from "@frontend/components/custom/section";
+import { Button } from "@frontend/components/ui/button";
 
 const PageError = () => {
   const navigate = useNavigate();
-  const to = getUserDashboardRoute();
+  const to = "/";
 
   const path = window.location.pathname;
 
@@ -65,7 +64,7 @@ const PageError = () => {
 
       <Button
         className="px-5 mt-5 bg-slate-900!"
-        danger
+        variant={"destructive"}
         onClick={() => {
           window.location.reload();
           navigate(to);

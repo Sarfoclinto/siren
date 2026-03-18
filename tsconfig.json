@@ -8,7 +8,8 @@
     "baseUrl": ".",
     "paths": {
       "@frontend/*": ["./src/frontend/*"],
-      "@electron/*": ["./src/electron/*"]
+      "@electron/*": ["./src/electron/*"],
+      "@shared/*": ["./src/shared/*"]
     }
   }
 }

@@ -11,6 +11,16 @@ node_modules
 dist
 dist-ssr
 *.local
+dist-electron/
+release/
+*.db
+*.db-shm
+*.db-wal
+.env.local
+.env.development
+.env.test
+.env.production
+.env.staging 
 
 # Editor directories and files
 .vscode/*

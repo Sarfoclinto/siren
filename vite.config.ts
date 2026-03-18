@@ -1,29 +1,29 @@
 import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
-//  { reactCompilerPreset }
-// import babel from "@rolldown/plugin-babel";
+import react, { reactCompilerPreset } from "@vitejs/plugin-react";
+import babel from "@rolldown/plugin-babel";
 import tailwindcss from "@tailwindcss/vite";
 import path from "path";
 
-// https://vite.dev/config/
 export default defineConfig({
   plugins: [
     react(),
-    // babel({ presets: [reactCompilerPreset()] }),
+    babel({ presets: [reactCompilerPreset()] }),
     tailwindcss(),
   ],
   base: "./",
   build: {
-    outDir: "build",
+    outDir: "dist", // Vite renderer output
+    emptyOutDir: true,
   },
   server: {
     port: 5173,
-    // strictPort: true,
+    strictPort: true,
   },
   resolve: {
     alias: {
       "@frontend": path.resolve(__dirname, "./src/frontend"),
       "@electron": path.resolve(__dirname, "./src/electron"),
+      "@shared": path.resolve(__dirname, "./src/shared"),
     },
   },
 });

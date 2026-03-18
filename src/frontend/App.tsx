@@ -1,8 +1,11 @@
+import Provider from "./provider";
+import { Router } from "./router";
+
 function App() {
   return (
-    <main>
-      <div>hellow</div>
-    </main>
+    <Provider>
+      <Router />
+    </Provider>
   );
 }
 

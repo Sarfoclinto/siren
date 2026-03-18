@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils";
+import { cn } from "@frontend/lib/utils";
 import { ChevronDown } from "lucide-react";
 import { useEffect, useId, useLayoutEffect, useRef, useState } from "react";
 

@@ -8,11 +8,11 @@
     "types": ["vite/client"],
     "skipLibCheck": true,
 
-    // aliases
     "baseUrl": ".",
     "paths": {
       "@frontend/*": ["./src/frontend/*"],
-      "@electron/*": ["./src/electron/*"]
+      "@electron/*": ["./src/electron/*"],
+      "@shared/*": ["./src/shared/*"]
     },
 
     /* Bundler mode */
@@ -31,5 +31,6 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": ["src"]
+  "include": ["src/frontend", "src/shared"],
+  "references": [{ "path": "./tsconfig.node.json" }]
 }
