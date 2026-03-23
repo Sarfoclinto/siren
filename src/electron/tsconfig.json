@@ -1,23 +1,16 @@
 {
   "compilerOptions": {
-    "target": "ES2022",
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
-    "lib": ["ES2022"],
-    "outDir": "../../dist-electron",
-    "rootDir": ".",
+    // require strict types(null-save)
     "strict": true,
+    // tell Typescript to generate ems syntax
+    "target": "esnext",
+    // tell tyepscript to require esm sysntax as input (including .js file imports)
+    "module": "nodenext",
+    // define where to put generated js
+    "outDir": "../../dist-electron",
+    // ignore errors from dependencies
     "skipLibCheck": true,
-    "esModuleInterop": true,
-    "resolveJsonModule": true,
-    "verbatimModuleSyntax": false,
-    "noUnusedLocals": false,
-    "noUnusedParameters": false,
-
-    "baseUrl": ".",
-    "paths": {
-      "@shared/*": ["../shared/*"]
-    }
-  },
-  "include": ["./**/*.ts", "../shared/**/*.ts"]
+    // add gloabl types
+    "types": ["../../types"]
+  }
 }

@@ -7,6 +7,7 @@
     },
     "files": ["dist/**/*", "dist-electron/**/*", "node_modules/**/*"],
     "extraResources": [
+      "dist-electron/preload.js",
       {
         "from": "assets/",
         "to": "assets/"

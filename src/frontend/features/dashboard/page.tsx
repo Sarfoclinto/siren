@@ -7,7 +7,7 @@ import {
 } from "lucide-react";
 import { toast } from "sonner";
 import { useApi } from "@frontend/hooks/useApi";
-import type { Schedule, ScheduleCreate, TriggerEvent } from "@shared/types";
+import type { Schedule, ScheduleCreate, TriggerEvent } from "../../../../types";
 import { ScheduleList } from "../schedule/list";
 import { ScheduleForm } from "../schedule/form";
 import { useNavigate } from "react-router-dom";
@@ -106,12 +106,12 @@ function Dashboard() {
       {/* ── Sidebar ── */}
       <aside className="db-sidebar">
         <div className="db-brand">
-          <BellRing size={20} strokeWidth={1.5} />
-          <span>School Siren</span>
+          <BellRing size={20} strokeWidth={1.5} className="text-slate-900" />
+          <span className="text-slate-950">School Siren</span>
         </div>
 
         <nav className="db-nav">
-          <button className="db-nav-item active">
+          <button className="db-nav-item active text-slate-900!">
             <CalendarDays size={16} /> Schedules
           </button>
           <button className="db-nav-item" onClick={() => navigate("/settings")}>
@@ -137,7 +137,9 @@ function Dashboard() {
             </p>
           </div>
           <button
-            className="btn-primary"
+            className="py-2 px-4 rounded-md border-none bg-slate-900 text-slate-100 cursor-pointer whitespace-nowrap transition-all hover:bg-slate-800"
+            type="button"
+            disabled={loading}
             onClick={() => {
               setEditing(null);
               setShowForm(true);
@@ -158,7 +160,7 @@ function Dashboard() {
             />
             <p>No schedules yet.</p>
             <button
-              className="btn-primary"
+              className="py-2 px-4 rounded-md border-none bg-slate-900 text-slate-100 cursor-pointer whitespace-nowrap transition-all hover:bg-slate-800"
               style={{ marginTop: 16 }}
               onClick={() => setShowForm(true)}
             >

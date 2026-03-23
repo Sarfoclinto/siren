@@ -14,13 +14,13 @@ import { scheduleDb, soundDb, settingsDb } from "./database.js";
 import { audioController } from "./audioController.js";
 import { ttsEngine } from "./ttsEngine.js";
 import { scheduler } from "./scheduler.js";
-import { IPC } from "@shared/types.js";
 import type {
   ScheduleCreate,
   ScheduleUpdate,
   AppSettings,
   TTSSpeakOptions,
-} from "@shared/types.js";
+} from "../../types.js";
+import { IPC } from "./data.cjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const isDev = !app.isPackaged;
@@ -43,7 +43,7 @@ function createWindow(): void {
     icon: getIconPath(),
     show: false, // revealed in ready-to-show to avoid white flash
     webPreferences: {
-      preload: path.join(__dirname, "preload.js"),
+      preload: path.join(__dirname, "preload.cjs"),
       contextIsolation: true,
       nodeIntegration: false,
       sandbox: false, // needed for preload to access ipcRenderer
@@ -160,7 +160,9 @@ function registerHandlers(): void {
     wrap(() => soundDb.delete(id)),
   );
   ipcMain.handle(IPC.SOUND_TEST, (_e, filename: string, vol: number) =>
-    wrap(() => audioController.play(filename, vol)),
+    wrap(() => {
+      return audioController.play(filename, vol);
+    }),
   );
 
   ipcMain.handle(IPC.SOUND_ADD, async (_e, name: string) =>
@@ -243,10 +245,10 @@ app.on("before-quit", () => {
 
 app.on("activate", () => {
   // macOS: re-show when dock icon clicked
-  if(mainWindow){
+  if (mainWindow) {
     mainWindow.show();
     mainWindow.focus(); //optional
-  }else{
+  } else {
     createWindow();
   }
 });

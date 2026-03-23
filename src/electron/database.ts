@@ -2,14 +2,14 @@ import Database from "better-sqlite3";
 import path from "path";
 import { app } from "electron";
 import crypto from "crypto";
-import type {
+import {
   Schedule,
   ScheduleCreate,
   ScheduleUpdate,
   Sound,
   AppSettings,
   DayOfWeek,
-} from "../shared/types.js";
+} from "../../types.js";
 
 // ─── Connection ───────────────────────────────────────────────────────────────
 

@@ -1,5 +1,5 @@
 import { contextBridge, ipcRenderer } from "electron";
-import { IPC } from "@shared/types.js";
+import { IPC } from "./data.cjs";
 import type {
   IPCResult,
   Schedule,
@@ -10,7 +10,7 @@ import type {
   TTSVoice,
   TTSSpeakOptions,
   TriggerEvent,
-} from "@shared/types.js";
+} from "../../types.js";
 
 // ─── API object ───────────────────────────────────────────────────────────────
 // This is the ONLY surface the renderer can use to talk to Electron.

@@ -2,8 +2,8 @@ import { BrowserWindow } from "electron";
 import { scheduleDb, soundDb, settingsDb } from "./database.js";
 import { audioController } from "./audioController.js";
 import { ttsEngine } from "./ttsEngine.js";
-import { IPC } from "@shared/types.js";
-import type { Schedule, DayOfWeek, TriggerEvent } from "@shared/types.js";
+import { IPC } from "./data.cjs";
+import type { Schedule, DayOfWeek, TriggerEvent } from "../../types.js";
 
 // ─── Time helpers ─────────────────────────────────────────────────────────────
 

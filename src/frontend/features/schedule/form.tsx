@@ -1,7 +1,12 @@
 import { useState, useEffect } from "react";
 import { X, Play, Loader2 } from "lucide-react";
 import { useApi } from "@frontend/hooks/useApi";
-import type { Schedule, ScheduleCreate, DayOfWeek, Sound } from "@shared/types";
+import type {
+  Schedule,
+  ScheduleCreate,
+  DayOfWeek,
+  Sound,
+} from "../../../../types";
 
 const ALL_DAYS: DayOfWeek[] = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
 const DAY_LABEL: Record<DayOfWeek, string> = {
@@ -431,7 +436,7 @@ export function ScheduleForm({ initial, onSave, onClose }: Props) {
         .sf-btn-cancel:hover { background: var(--color-bg-hover); }
         .sf-btn-save {
           padding: 8px 18px; border-radius: var(--radius-md);
-          border: none; background: var(--color-accent);
+          border: none; background: #0f172a;
           color: #fff; font-size: 13px; font-weight: 500; cursor: pointer;
           transition: background 0.15s;
         }

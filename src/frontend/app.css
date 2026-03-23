@@ -6,19 +6,19 @@
   --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
 
   /* Brand */
-  --color-accent:        #4f6ef7;
-  --color-accent-hover:  #3d5ce5;
-  --color-accent-subtle: #eef1fe;
+  --color-accent:        #020618 ;
+  --color-accent-hover:  #0f172b;
+  --color-accent-subtle: #1d293d ;
 
   /* Surfaces */
-  --color-bg-page:  #f5f6fa;
-  --color-bg-card:  #ffffff;
-  --color-bg-hover: #f0f2f8;
+  --color-bg-page:  #0f172a; /* slate-900 */
+  --color-bg-card:  #1e293b; /* slate-800 */
+  --color-bg-hover: #334155; /* slate-700 */
 
   /* Text */
-  --color-text-primary:   #111318;
-  --color-text-secondary: #4b5060;
-  --color-text-muted:     #8b90a0;
+  --color-text-primary:   #f8fafc; /* slate-50 */
+  --color-text-secondary: #e2e8f0; /* slate-200 */
+  --color-text-muted:     #94a3b8; /* slate-400 */
 
   /* Borders */
   --color-border:       #e4e6ef;

@@ -3,7 +3,6 @@ import { BellRing } from "lucide-react";
 import { useApi } from "@frontend/hooks/useApi";
 import { useNavigate } from "react-router-dom";
 
-
 function Login() {
   const [pin, setPin] = useState("");
   const [error, setError] = useState("");
@@ -16,7 +15,6 @@ function Login() {
   const onSuccess = () => {
     navigate("/dashboard");
   };
-
 
   useEffect(() => {
     inputRef.current?.focus();
@@ -70,7 +68,7 @@ function Login() {
       <div className={`login-card ${shake ? "shake" : ""}`}>
         {/* Logo */}
         <div className="login-icon">
-          <BellRing size={36} strokeWidth={1.5} />
+          <BellRing size={36} strokeWidth={1.5} className="text-slate-900" />
         </div>
 
         <h1 className="login-title">School Siren</h1>
@@ -82,7 +80,7 @@ function Login() {
             {Array.from({ length: dots }, (_, i) => (
               <span
                 key={i}
-                className={`pin-dot ${i < pin.length ? "filled" : ""}`}
+                className={`pin-dot ${i < pin.length ? "filled. bg-slate-900!" : ""}`}
               />
             ))}
           </div>
@@ -124,7 +122,7 @@ function Login() {
 
           <button
             type="submit"
-            className="login-btn"
+            className="w-full p-2.5 rounded-md border-none bg-slate-800 text-white font-medium cursor-pointer transition-all duration-150 hover:not-disabled:bg-slate-950 disabled:cursor-not-allowed"
             disabled={loading || pin.length === 0}
           >
             {loading ? "Checking…" : "Unlock"}
@@ -261,4 +259,4 @@ function Login() {
   );
 }
 
-export default Login
+export default Login;

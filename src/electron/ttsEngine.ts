@@ -1,5 +1,5 @@
 import { BrowserWindow } from "electron";
-import type { TTSVoice, TTSSpeakOptions } from "@shared/types.js";
+import type { TTSVoice, TTSSpeakOptions } from "../../types.js";
 
 // ─── Interface ────────────────────────────────────────────────────────────────
 // Swap RendererTTSEngine for PiperTTSEngine (stub below) when you're ready

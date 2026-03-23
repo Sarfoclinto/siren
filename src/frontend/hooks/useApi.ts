@@ -6,7 +6,7 @@ import type {
   AppSettings,
   TTSVoice,
   TTSSpeakOptions,
-} from "@shared/types";
+} from "../../../types";
 
 // Unwrap the IPCResult envelope and throw on error so callers
 // only deal with the happy-path data type.
