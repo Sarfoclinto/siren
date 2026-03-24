@@ -11,9 +11,8 @@ import {
 } from "lucide-react";
 import { toast } from "sonner";
 import { useApi } from "@frontend/hooks/useApi";
-import type { AppSettings, TTSVoice, Sound } from "@shared/types";
+import type { AppSettings, TTSVoice, Sound } from "../../../../types";
 import { useNavigate } from "react-router-dom";
-
 
 function Settings() {
   const api = useApi();
@@ -150,15 +149,8 @@ function Settings() {
 
   if (loading) {
     return (
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          height: "100vh",
-        }}
-      >
-        <Loader2 size={24} className="spin" />
+      <div className="flex items-center justify-center h-screen bg-gray-50 dark:bg-gray-900">
+        <Loader2 className="animate-spin w-6 h-6 text-gray-500" />
       </div>
     );
   }
@@ -484,7 +476,7 @@ function Settings() {
     </div>
   );
 }
-export default Settings
+export default Settings;
 // ─── Sub-components ───────────────────────────────────────────────────────────
 
 function Section({

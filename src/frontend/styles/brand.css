@@ -1,0 +1,103 @@
+@import "tw-animate-css";
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap");
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "DM Mono", ui-monospace, monospace;
+
+  /* Brand palette — deep navy + amber accent */
+  --color-brand-50:   #eef2ff;
+  --color-brand-100:  #e0e7ff;
+  --color-brand-200:  #c7d2fe;
+  --color-brand-500:  #4361ee;
+  --color-brand-600:  #3451d1;
+  --color-brand-700:  #2740b8;
+  --color-brand-900:  #1a2878;
+
+  --color-amber-400:  #fbbf24;
+  --color-amber-500:  #f59e0b;
+
+  /* Surfaces */
+  --color-surface-0:  #ffffff;
+  --color-surface-1:  #f8f9fc;
+  --color-surface-2:  #f1f3f9;
+  --color-surface-3:  #e8ecf4;
+
+  /* Text */
+  --color-ink-900:  #0d1117;
+  --color-ink-700:  #2d3550;
+  --color-ink-500:  #5a6384;
+  --color-ink-300:  #9aa3be;
+  --color-ink-100:  #d4d9ea;
+
+  /* Semantic */
+  --color-success:  #16a34a;
+  --color-danger:   #dc2626;
+  --color-warning:  #d97706;
+
+  /* Radii */
+  --radius-sm:  4px;
+  --radius-md:  8px;
+  --radius-lg:  12px;
+  --radius-xl:  16px;
+  --radius-2xl: 24px;
+}
+
+/* ── Dark mode ── */
+.dark {
+  --color-surface-0:  #0f1218;
+  --color-surface-1:  #161b27;
+  --color-surface-2:  #1e2538;
+  --color-surface-3:  #28304a;
+
+  --color-ink-900:  #eef1fa;
+  --color-ink-700:  #b8c0d8;
+  --color-ink-500:  #7a84a0;
+  --color-ink-300:  #444f6a;
+  --color-ink-100:  #2a3050;
+}
+
+/* ── Base ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body, #root { height: 100%; overflow: hidden; }
+
+body {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--color-ink-700);
+  background: var(--color-surface-1);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar        { width: 5px; }
+::-webkit-scrollbar-track  { background: transparent; }
+::-webkit-scrollbar-thumb  { background: var(--color-ink-100); border-radius: 3px; }
+
+/* ── Focus ── */
+:focus-visible {
+  outline: 2px solid var(--color-brand-500);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+button, input, select, textarea { font-family: inherit; }
+
+/* ── Custom Tailwind utilities ── */
+@layer utilities {
+  .text-ink-900  { color: var(--color-ink-900); }
+  .text-ink-700  { color: var(--color-ink-700); }
+  .text-ink-500  { color: var(--color-ink-500); }
+  .text-ink-300  { color: var(--color-ink-300); }
+  .text-brand    { color: var(--color-brand-500); }
+  .bg-surface-0  { background: var(--color-surface-0); }
+  .bg-surface-1  { background: var(--color-surface-1); }
+  .bg-surface-2  { background: var(--color-surface-2); }
+  .bg-surface-3  { background: var(--color-surface-3); }
+  .border-ink-100 { border-color: var(--color-ink-100); }
+  .border-ink-300 { border-color: var(--color-ink-300); }
+}

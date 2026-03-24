@@ -1,0 +1,1294 @@
+/*
+ * SchoolMate — Global AntD Theme Override
+ * Deep Navy (#0D1B2E) × Slate Navy (#1E3A5F) × Gold (#C9A84C)
+ * Font: DM Sans (body) + Playfair Display (headings)
+ * Import once in your entry file: import "./antd-theme.css"
+ * ─────────────────────────────────────────────────────────
+ */
+
+/* ══════════════════════════════════════════════════════════
+   0. CSS VARIABLES
+══════════════════════════════════════════════════════════ */
+:root {
+  --navy-900: #0d1b2e;
+  --navy-700: #1e3a5f;
+  --navy-500: #2d5a8e;
+  --gold: #c9a84c;
+  --gold-dim: rgba(201, 168, 76, 0.12);
+  --gold-text: #8b6914;
+  --slate-50: #f4f6fa;
+  --slate-100: #e8edf5;
+  --slate-200: #cbd5e1;
+  --slate-400: #94a3b8;
+  --slate-600: #475569;
+  --slate-800: #1e293b;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --shadow-sm: 0 2px 8px rgba(13, 27, 46, 0.06);
+  --shadow-md: 0 4px 16px rgba(13, 27, 46, 0.1);
+  --shadow-lg: 0 8px 32px rgba(13, 27, 46, 0.14);
+}
+
+/* ══════════════════════════════════════════════════════════
+   1. GLOBAL BASE
+══════════════════════════════════════════════════════════ */
+body {
+  font-family: "DM Sans", sans-serif !important;
+  background-color: var(--slate-50) !important;
+  color: var(--slate-800) !important;
+}
+
+/* ══════════════════════════════════════════════════════════
+   2. INPUT & TEXTAREA
+══════════════════════════════════════════════════════════ */
+.ant-input,
+.ant-input-affix-wrapper,
+.ant-input-number,
+.ant-input-number-input,
+.ant-picker {
+  font-family: "DM Sans", sans-serif !important;
+  font-size: 13.5px !important;
+  color: var(--navy-900) !important;
+  border-color: var(--slate-200) !important;
+  border-radius: var(--radius-md) !important;
+  background: #fff !important;
+  transition:
+    border-color 0.18s ease,
+    box-shadow 0.18s ease !important;
+}
+
+.ant-input::placeholder,
+.ant-input-affix-wrapper input::placeholder,
+.ant-picker input::placeholder,
+.ant-input-number-input::placeholder {
+  color: #bcc8d4 !important;
+  font-weight: 400 !important;
+}
+
+/* Focus */
+.ant-input:focus,
+.ant-input-focused,
+.ant-input-affix-wrapper-focused,
+.ant-picker-focused,
+.ant-input-number-focused {
+  border-color: var(--navy-700) !important;
+  box-shadow: 0 0 0 3px rgba(30, 58, 95, 0.1) !important;
+  outline: none !important;
+}
+
+/* Hover */
+.ant-input:hover:not(:focus):not(:disabled),
+.ant-input-affix-wrapper:hover:not(.ant-input-affix-wrapper-focused):not(
+    .ant-input-affix-wrapper-disabled
+  ),
+.ant-picker:hover:not(.ant-picker-focused):not(.ant-picker-disabled),
+.ant-input-number:hover:not(.ant-input-number-focused):not(
+    .ant-input-number-disabled
+  ) {
+  border-color: var(--slate-400) !important;
+}
+
+/* Disabled */
+.ant-input[disabled],
+.ant-input-affix-wrapper-disabled,
+.ant-picker-disabled,
+.ant-input-number-disabled {
+  background: var(--slate-50) !important;
+  border-color: var(--slate-100) !important;
+  color: var(--slate-400) !important;
+  cursor: not-allowed !important;
+}
+
+/* Prefix / suffix icons */
+.ant-input-prefix,
+.ant-input-suffix {
+  color: var(--slate-400) !important;
+  margin-inline-end: 6px !important;
+}
+
+/* OTP input */
+.ant-otp-input {
+  border-radius: var(--radius-sm) !important;
+  font-family: "DM Sans", sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  border-color: var(--slate-200) !important;
+  color: var(--navy-900) !important;
+}
+.ant-otp-input:focus {
+  border-color: var(--navy-700) !important;
+  box-shadow: 0 0 0 3px rgba(30, 58, 95, 0.1) !important;
+}
+
+/* TextArea */
+.ant-input-textarea textarea,
+textarea.ant-input {
+  border-radius: var(--radius-md) !important;
+  font-family: "DM Sans", sans-serif !important;
+  font-size: 13.5px !important;
+  resize: vertical !important;
+  color: var(--navy-900) !important;
+  line-height: 1.6 !important;
+}
+
+.ant-input-data-count {
+  font-family: "DM Sans", sans-serif !important;
+  font-size: 11px !important;
+  color: var(--slate-400) !important;
+}
+
+/* Large size */
+.ant-input-lg,
+.ant-input-affix-wrapper-lg {
+  padding: 9px 14px !important;
+  font-size: 14px !important;
+}
+
+/* ══════════════════════════════════════════════════════════
+   3. SELECT
+══════════════════════════════════════════════════════════ */
+.ant-select-selector {
+  font-family: "DM Sans", sans-serif !important;
+  font-size: 13.5px !important;
+  border-color: var(--slate-200) !important;
+  border-radius: var(--radius-md) !important;
+  color: var(--navy-900) !important;
+  transition:
+    border-color 0.18s ease,
+    box-shadow 0.18s ease !important;
+}
+
+.ant-select:not(.ant-select-disabled):hover .ant-select-selector {
+  border-color: var(--slate-400) !important;
+}
+
+.ant-select-focused .ant-select-selector,
+.ant-select-open .ant-select-selector {
+  border-color: var(--navy-700) !important;
+  box-shadow: 0 0 0 3px rgba(30, 58, 95, 0.1) !important;
+}
+
+.ant-select-disabled .ant-select-selector {
+  background: var(--slate-50) !important;
+  color: var(--slate-400) !important;
+  cursor: not-allowed !important;
+}
+
+.ant-select-placeholder {
+  color: #bcc8d4 !important;
+  font-family: "DM Sans", sans-serif !important;
+}
+
+.ant-select-arrow {
+  color: var(--slate-400) !important;
+}
+
+/* Dropdown */
+.ant-select-dropdown {
+  border-radius: var(--radius-md) !important;
+  border: 1px solid var(--slate-100) !important;
+  box-shadow: var(--shadow-lg) !important;
+  padding: 6px !important;
+  font-family: "DM Sans", sans-serif !important;
+}
+
+.ant-select-item {
+  border-radius: var(--radius-sm) !important;
+  font-family: "DM Sans", sans-serif !important;
+  font-size: 13px !important;
+  color: var(--slate-600) !important;
+  padding: 8px 12px !important;
+  transition: background 0.12s ease !important;
+}
+
+.ant-select-item-option-active:not(.ant-select-item-option-disabled) {
+  background: var(--slate-50) !important;
+  color: var(--navy-700) !important;
+}
+
+.ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
+  background: rgba(30, 58, 95, 0.07) !important;
+  color: var(--navy-700) !important;
+  font-weight: 600 !important;
+}
+
+.ant-select-item-option-selected .ant-select-item-option-state {
+  color: var(--navy-700) !important;
+}
+
+/* ══════════════════════════════════════════════════════════
+   4. DATE PICKER
+══════════════════════════════════════════════════════════ */
+.ant-picker {
+  width: 100%;
+}
+
+.ant-picker-dropdown {
+  font-family: "DM Sans", sans-serif !important;
+}
+
+.ant-picker-panel-container {
+  border-radius: var(--radius-md) !important;
+  box-shadow: var(--shadow-lg) !important;
+  border: 1px solid var(--slate-100) !important;
+  overflow: hidden !important;
+}
+
+.ant-picker-header {
+  border-bottom: 1px solid var(--slate-100) !important;
+  padding: 8px 12px !important;
+}
+
+.ant-picker-header button,
+.ant-picker-header-view button {
+  font-family: "DM Sans", sans-serif !important;
+  font-weight: 600 !important;
+  color: var(--navy-900) !important;
+  font-size: 13px !important;
+}
+
+.ant-picker-content th {
+  font-family: "DM Sans", sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  color: var(--slate-400) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.06em !important;
+}
+
+.ant-picker-cell-in-view {
+  color: var(--slate-600) !important;
+}
+
+.ant-picker-cell-in-view.ant-picker-cell-selected .ant-picker-cell-inner,
+.ant-picker-cell-in-view.ant-picker-cell-range-start .ant-picker-cell-inner,
+.ant-picker-cell-in-view.ant-picker-cell-range-end .ant-picker-cell-inner {
+  background: var(--navy-700) !important;
+  color: #fff !important;
+  border-radius: var(--radius-sm) !important;
+}
+
+.ant-picker-cell-in-view.ant-picker-cell-today .ant-picker-cell-inner::before {
+  border-color: var(--gold) !important;
+  border-radius: var(--radius-sm) !important;
+}
+
+.ant-picker-cell:hover:not(.ant-picker-cell-selected) .ant-picker-cell-inner {
+  background: var(--slate-50) !important;
+  border-radius: var(--radius-sm) !important;
+}
+
+.ant-picker-footer {
+  border-top: 1px solid var(--slate-100) !important;
+}
+
+/* ══════════════════════════════════════════════════════════
+   5. FORM
+══════════════════════════════════════════════════════════ */
+.ant-form-item {
+  margin-bottom: 16px !important;
+}
+
+.ant-form-item-label > label {
+  font-family: "DM Sans", sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  color: var(--slate-600) !important;
+  height: auto !important;
+  padding-bottom: 4px !important;
+}
+
+.ant-form-item-label > label.ant-form-item-required::before {
+  color: #ef4444 !important;
+}
+
+.ant-form-item-explain-error {
+  font-family: "DM Sans", sans-serif !important;
+  font-size: 11.5px !important;
+  color: #ef4444 !important;
+  margin-top: 3px !important;
+}
+
+.ant-form-item-has-error .ant-input,
+.ant-form-item-has-error .ant-input-affix-wrapper,
+.ant-form-item-has-error .ant-select-selector,
+.ant-form-item-has-error .ant-picker,
+.ant-form-item-has-error .ant-input-number {
+  border-color: #ef4444 !important;
+}
+
+.ant-form-item-has-error .ant-input:focus,
+.ant-form-item-has-error .ant-input-affix-wrapper-focused,
+.ant-form-item-has-error .ant-select-focused .ant-select-selector {
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1) !important;
+}
+
+/* ══════════════════════════════════════════════════════════
+   6. BUTTON
+══════════════════════════════════════════════════════════ */
+.ant-btn {
+  font-family: "DM Sans", sans-serif !important;
+  font-weight: 600 !important;
+  border-radius: var(--radius-md) !important;
+  font-size: 13px !important;
+  letter-spacing: 0.02em !important;
+  transition: all 0.18s ease !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+}
+
+/* Primary */
+.ant-btn-primary {
+  background: linear-gradient(
+    135deg,
+    var(--navy-900) 0%,
+    var(--navy-700) 100%
+  ) !important;
+  border: none !important;
+  color: #fff !important;
+  box-shadow: 0 2px 8px rgba(13, 27, 46, 0.25) !important;
+}
+
+.ant-btn-primary:hover:not(:disabled) {
+  background: linear-gradient(
+    135deg,
+    var(--navy-700) 0%,
+    var(--navy-500) 100%
+  ) !important;
+  box-shadow: 0 4px 14px rgba(13, 27, 46, 0.3) !important;
+  transform: translateY(-1px) !important;
+}
+
+.ant-btn-primary:active {
+  transform: translateY(0) !important;
+  box-shadow: none !important;
+}
+
+/* Default */
+.ant-btn-default {
+  border-color: var(--slate-200) !important;
+  color: var(--slate-600) !important;
+  background: #fff !important;
+}
+
+.ant-btn-default:hover:not(:disabled) {
+  border-color: var(--navy-700) !important;
+  color: var(--navy-700) !important;
+  background: rgba(30, 58, 95, 0.04) !important;
+}
+
+/* Dashed */
+.ant-btn-dashed {
+  border-color: var(--slate-200) !important;
+  color: var(--slate-600) !important;
+  border-radius: var(--radius-md) !important;
+}
+
+.ant-btn-dashed:hover {
+  border-color: var(--navy-700) !important;
+  color: var(--navy-700) !important;
+}
+
+/* Danger */
+.ant-btn-dangerous {
+  border-color: #fca5a5 !important;
+  color: #ef4444 !important;
+}
+
+.ant-btn-dangerous:hover {
+  background: #fef2f2 !important;
+  border-color: #ef4444 !important;
+}
+
+/* Link */
+.ant-btn-link {
+  color: var(--navy-700) !important;
+  padding: 0 !important;
+}
+
+.ant-btn-link:hover {
+  color: var(--gold-text) !important;
+}
+
+/* Large */
+.ant-btn-lg {
+  height: 44px !important;
+  padding: 0 20px !important;
+  font-size: 14px !important;
+  border-radius: var(--radius-md) !important;
+}
+
+/* Small */
+.ant-btn-sm {
+  height: 30px !important;
+  padding: 0 12px !important;
+  font-size: 12px !important;
+  border-radius: var(--radius-sm) !important;
+}
+
+/* Disabled */
+.ant-btn:disabled {
+  opacity: 0.45 !important;
+  cursor: not-allowed !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* ══════════════════════════════════════════════════════════
+   7. CARD
+══════════════════════════════════════════════════════════ */
+.ant-card {
+  border-radius: var(--radius-lg) !important;
+  border-color: var(--slate-100) !important;
+  box-shadow: var(--shadow-sm) !important;
+  font-family: "DM Sans", sans-serif !important;
+}
+
+.ant-card-head {
+  border-bottom-color: var(--slate-100) !important;
+  font-family: "DM Sans", sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  color: var(--navy-900) !important;
+  min-height: 52px !important;
+  padding: 0 20px !important;
+}
+
+.ant-card-body {
+  padding: 20px !important;
+}
+
+/* ══════════════════════════════════════════════════════════
+   8. RADIO
+══════════════════════════════════════════════════════════ */
+.ant-radio-wrapper {
+  font-family: "DM Sans", sans-serif !important;
+  font-size: 13px !important;
+  color: var(--slate-600) !important;
+}
+
+.ant-radio-checked .ant-radio-inner {
+  border-color: var(--navy-700) !important;
+  background-color: var(--navy-700) !important;
+}
+
+.ant-radio-inner::after {
+  background-color: var(--gold) !important;
+}
+
+.ant-radio:hover .ant-radio-inner {
+  border-color: var(--navy-700) !important;
+}
+
+.ant-radio-button-wrapper {
+  font-family: "DM Sans", sans-serif !important;
+  font-size: 13px !important;
+  color: var(--slate-600) !important;
+  border-color: var(--slate-200) !important;
+  transition: all 0.15s ease !important;
+}
+
+.ant-radio-button-wrapper:hover {
+  color: var(--navy-700) !important;
+  border-color: var(--navy-700) !important;
+}
+
+.ant-radio-button-wrapper-checked {
+  background: var(--navy-700) !important;
+  border-color: var(--navy-700) !important;
+  color: #fff !important;
+  box-shadow: none !important;
+}
+
+.ant-radio-button-wrapper-checked::before {
+  background: var(--navy-700) !important;
+}
+
+.ant-radio-group-solid .ant-radio-button-wrapper-checked {
+  background: var(--navy-700) !important;
+  border-color: var(--navy-700) !important;
+  color: #fff !important;
+}
+
+/* ══════════════════════════════════════════════════════════
+   9. CHECKBOX
+══════════════════════════════════════════════════════════ */
+.ant-checkbox-inner {
+  border-radius: 5px !important;
+  border-color: var(--slate-200) !important;
+  transition: all 0.15s ease !important;
+}
+
+.ant-checkbox-checked .ant-checkbox-inner {
+  background: var(--navy-700) !important;
+  border-color: var(--navy-700) !important;
+}
+
+.ant-checkbox:hover .ant-checkbox-inner,
+.ant-checkbox-wrapper:hover .ant-checkbox-inner {
+  border-color: var(--navy-700) !important;
+}
+
+.ant-checkbox-wrapper {
+  font-family: "DM Sans", sans-serif !important;
+  font-size: 13px !important;
+  color: var(--slate-600) !important;
+}
+
+/* ══════════════════════════════════════════════════════════
+   10. SWITCH
+══════════════════════════════════════════════════════════ */
+.ant-switch {
+  background: var(--slate-200) !important;
+}
+
+.ant-switch-checked {
+  background: var(--navy-700) !important;
+}
+
+.ant-switch-checked:hover {
+  background: var(--navy-500) !important;
+}
+
+/* ══════════════════════════════════════════════════════════
+   11. TABLE
+══════════════════════════════════════════════════════════ */
+.ant-table {
+  font-family: "DM Sans", sans-serif !important;
+  border-radius: var(--radius-lg) !important;
+  overflow: hidden !important;
+}
+
+.ant-table-thead > tr > th {
+  background: var(--navy-900) !important;
+  /* color: rgba(255, 255, 255, 0.65) !important; */
+  font-family: "DM Sans", sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  border-bottom: none !important;
+  padding: 12px 16px !important;
+}
+
+.ant-table-thead > tr > th:first-child {
+  border-radius: 0 !important;
+}
+
+.ant-table-thead > tr > th:last-child {
+  border-radius: 0 !important;
+}
+
+.ant-table-thead > tr > th::before {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+.ant-table-tbody > tr > td {
+  font-family: "DM Sans", sans-serif !important;
+  font-size: 13px !important;
+  color: var(--slate-800) !important;
+  border-bottom-color: var(--slate-100) !important;
+  padding: 12px 16px !important;
+  transition: background 0.12s ease !important;
+}
+
+.setup-table .ant-table-thead .antd-table-cell {
+  color: whitesmoke !important;
+}
+
+.ant-table-tbody > tr:hover > td {
+  background: var(--slate-50) !important;
+}
+
+.ant-table-tbody > tr:last-child > td {
+  border-bottom: none !important;
+}
+
+.ant-table-row-selected > td {
+  background: rgba(30, 58, 95, 0.05) !important;
+}
+
+.ant-table-pagination {
+  padding: 12px 16px !important;
+}
+
+.ant-pagination-item {
+  border-radius: var(--radius-sm) !important;
+  border-color: var(--slate-200) !important;
+  font-family: "DM Sans", sans-serif !important;
+  font-size: 13px !important;
+}
+
+.ant-pagination-item a {
+  color: var(--slate-600) !important;
+}
+
+.ant-pagination-item-active {
+  border-color: var(--navy-700) !important;
+  background: var(--navy-700) !important;
+}
+
+.ant-pagination-item-active a {
+  color: #fff !important;
+}
+
+.ant-pagination-prev .ant-pagination-item-link,
+.ant-pagination-next .ant-pagination-item-link {
+  border-radius: var(--radius-sm) !important;
+  border-color: var(--slate-200) !important;
+  color: var(--slate-600) !important;
+  font-size: 12px !important;
+}
+
+.ant-pagination-prev:hover .ant-pagination-item-link,
+.ant-pagination-next:hover .ant-pagination-item-link {
+  border-color: var(--navy-700) !important;
+  color: var(--navy-700) !important;
+}
+
+.ant-table-column-sorter-up.active,
+.ant-table-column-sorter-down.active {
+  color: var(--gold) !important;
+}
+
+/* ══════════════════════════════════════════════════════════
+   12. MODAL
+══════════════════════════════════════════════════════════ */
+.ant-modal-content {
+  border-radius: var(--radius-lg) !important;
+  box-shadow: var(--shadow-lg) !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+}
+
+.ant-modal-header {
+  /* border-radius: var(--radius-lg) var(--radius-lg) 0 0 !important; */
+  background: linear-gradient(
+    135deg,
+    var(--navy-900) 0%,
+    var(--navy-700) 100%
+  ) !important;
+  padding: 16px 24px !important;
+  border-bottom: none !important;
+  margin-bottom: 0 !important;
+}
+
+.ant-modal-title {
+  font-family: "DM Sans", sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 15px !important;
+  color: #fff !important;
+}
+
+.ant-modal-close {
+  color: rgba(255, 255, 255, 0.5) !important;
+  top: 14px !important;
+  inset-inline-end: 20px !important;
+}
+
+.ant-modal-close:hover {
+  color: #fff !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-radius: 6px !important;
+}
+
+.ant-modal-body {
+  /* padding: 24px !important; */
+  font-family: "DM Sans", sans-serif !important;
+}
+
+.ant-modal-footer {
+  padding: 12px 24px 20px !important;
+  border-top: 1px solid var(--slate-100) !important;
+}
+
+/* ══════════════════════════════════════════════════════════
+   13. DRAWER
+══════════════════════════════════════════════════════════ */
+.ant-drawer-header {
+  background: linear-gradient(
+    135deg,
+    var(--navy-900),
+    var(--navy-700)
+  ) !important;
+  border-bottom: none !important;
+  padding: 16px 20px !important;
+}
+
+.ant-drawer-title {
+  color: #fff !important;
+  font-family: "DM Sans", sans-serif !important;
+  font-weight: 700 !important;
+}
+
+.ant-drawer-close {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.ant-drawer-close:hover {
+  color: #fff !important;
+}
+
+.ant-drawer-body {
+  font-family: "DM Sans", sans-serif !important;
+  /* padding: 20px !important; */
+}
+
+/* ══════════════════════════════════════════════════════════
+   14. TAG & BADGE
+══════════════════════════════════════════════════════════ */
+.ant-tag {
+  font-family: "DM Sans", sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  border-radius: 6px !important;
+  padding: 2px 8px !important;
+  border: none !important;
+  letter-spacing: 0.02em !important;
+}
+
+.ant-badge-count {
+  font-family: "DM Sans", sans-serif !important;
+  font-weight: 700 !important;
+  box-shadow: none !important;
+}
+
+/* ══════════════════════════════════════════════════════════
+   15. SPIN / LOADING
+══════════════════════════════════════════════════════════ */
+.ant-spin-dot-item {
+  background-color: var(--navy-700) !important;
+}
+
+.ant-spin-text {
+  font-family: "DM Sans", sans-serif !important;
+  color: var(--navy-900) !important;
+  font-weight: 600 !important;
+  font-size: 13px !important;
+  margin-top: 10px !important;
+}
+
+/* ══════════════════════════════════════════════════════════
+   16. TOOLTIP
+══════════════════════════════════════════════════════════ */
+.ant-tooltip-inner {
+  font-family: "DM Sans", sans-serif !important;
+  font-size: 12px !important;
+  border-radius: var(--radius-sm) !important;
+  background: var(--navy-900) !important;
+  padding: 6px 10px !important;
+}
+
+.ant-tooltip-arrow-content,
+.ant-tooltip-arrow::before {
+  background: var(--navy-900) !important;
+}
+
+/* ══════════════════════════════════════════════════════════
+   17. NOTIFICATION (kept for compatibility, prefer sonner)
+══════════════════════════════════════════════════════════ */
+.ant-notification-notice {
+  border-radius: var(--radius-md) !important;
+  font-family: "DM Sans", sans-serif !important;
+  border: 1px solid var(--slate-100) !important;
+  box-shadow: var(--shadow-lg) !important;
+  padding: 14px 18px !important;
+}
+
+.ant-notification-notice-message {
+  font-family: "DM Sans", sans-serif !important;
+  font-weight: 600 !important;
+  color: var(--navy-900) !important;
+  font-size: 14px !important;
+  margin-bottom: 2px !important;
+}
+
+.ant-notification-notice-description {
+  font-family: "DM Sans", sans-serif !important;
+  font-size: 13px !important;
+  color: var(--slate-600) !important;
+}
+
+/* ══════════════════════════════════════════════════════════
+   18. UPLOAD
+══════════════════════════════════════════════════════════ */
+.ant-upload-drag {
+  border-radius: var(--radius-md) !important;
+  border-color: var(--slate-200) !important;
+  background: var(--slate-50) !important;
+  transition: border-color 0.15s ease !important;
+}
+
+.ant-upload-drag:hover {
+  border-color: var(--navy-700) !important;
+}
+
+.ant-upload-drag-icon {
+  color: var(--navy-700) !important;
+}
+
+.ant-upload-list-item {
+  border-radius: var(--radius-sm) !important;
+  font-family: "DM Sans", sans-serif !important;
+  font-size: 12.5px !important;
+  border: 1px solid var(--slate-100) !important;
+  padding: 6px 10px !important;
+}
+
+.ant-upload-list-item-name {
+  color: var(--navy-700) !important;
+  font-weight: 500 !important;
+}
+
+.ant-upload-list-item-actions .anticon-delete {
+  color: #ef4444 !important;
+}
+
+/* ══════════════════════════════════════════════════════════
+   19. TABS
+══════════════════════════════════════════════════════════ */
+.ant-tabs-tab {
+  font-family: "DM Sans", sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  color: var(--slate-400) !important;
+  padding: 10px 0 !important;
+}
+
+.ant-tabs-tab:hover {
+  color: var(--navy-700) !important;
+}
+
+.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: var(--navy-900) !important;
+  font-weight: 700 !important;
+}
+
+.ant-tabs-ink-bar {
+  background: var(--gold) !important;
+  height: 3px !important;
+  border-radius: 2px !important;
+}
+
+.ant-tabs-nav::before {
+  border-bottom-color: var(--slate-100) !important;
+}
+
+/* ══════════════════════════════════════════════════════════
+   20. MENU (sidebar – supplements antd-config.tsx)
+══════════════════════════════════════════════════════════ */
+.cms-sider.ant-menu {
+  border-inline-end: none !important;
+  padding: 0 0 12px !important;
+}
+
+.cms-sider .ant-menu-item,
+.cms-sider .ant-menu-submenu-title {
+  border-radius: var(--radius-sm) !important;
+  margin-inline: 8px !important;
+  width: calc(100% - 16px) !important;
+  font-family: "DM Sans", sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.01em !important;
+  transition:
+    background 0.15s,
+    color 0.15s !important;
+}
+
+.cms-sider .ant-menu-item-selected {
+  background: rgba(201, 168, 76, 0.12) !important;
+  /* color: #fff !important; */
+  position: relative;
+}
+
+.cms-sider .ant-menu-item-selected::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 20%;
+  height: 60%;
+  width: 3px;
+  border-radius: 0 3px 3px 0;
+  background: var(--gold);
+  transform: translateX(-8px);
+}
+
+.cms-sider .ant-menu-submenu-arrow {
+  color: rgba(255, 255, 255, 0.3) !important;
+}
+.cms-sider
+  .ant-menu-submenu-open
+  > .ant-menu-submenu-title
+  .ant-menu-submenu-arrow {
+  color: var(--gold) !important;
+}
+.cms-sider .ant-menu-submenu-open > .ant-menu-submenu-title {
+  /* color: #fff !important; */
+  background: rgba(255, 255, 255, 0.06) !important;
+}
+.cms-sider .ant-menu-sub {
+  background: rgba(0, 0, 0, 0.18) !important;
+  border-radius: var(--radius-sm);
+  margin: 2px 8px 4px !important;
+  padding: 4px 0 !important;
+}
+.cms-sider .ant-menu-sub .ant-menu-item {
+  margin-inline: 6px !important;
+  width: calc(100% - 12px) !important;
+  font-size: 12.5px !important;
+  padding-left: 16px !important;
+  height: 36px !important;
+  line-height: 36px !important;
+}
+.cms-sider .ant-menu-item .ant-menu-item-icon,
+.cms-sider .ant-menu-submenu-title .ant-menu-item-icon {
+  color: rgba(255, 255, 255, 0.45) !important;
+  transition: color 0.15s !important;
+}
+.cms-sider .ant-menu-item-selected .ant-menu-item-icon,
+.cms-sider
+  .ant-menu-submenu-open
+  > .ant-menu-submenu-title
+  .ant-menu-item-icon {
+  color: var(--gold) !important;
+}
+.cms-sider .ant-menu-item:hover .ant-menu-item-icon,
+.cms-sider .ant-menu-submenu-title:hover .ant-menu-item-icon {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* ══════════════════════════════════════════════════════════
+   21. BREADCRUMB
+══════════════════════════════════════════════════════════ */
+.ant-breadcrumb {
+  font-family: "DM Sans", sans-serif !important;
+  font-size: 12px !important;
+}
+
+.ant-breadcrumb-link {
+  color: var(--slate-400) !important;
+  font-weight: 500 !important;
+  transition: color 0.15s !important;
+}
+
+.ant-breadcrumb-link:hover {
+  color: var(--navy-700) !important;
+}
+
+.ant-breadcrumb-separator {
+  color: var(--slate-300) !important;
+}
+
+/* ══════════════════════════════════════════════════════════
+   22. DIVIDER
+══════════════════════════════════════════════════════════ */
+.ant-divider {
+  border-color: var(--slate-100) !important;
+}
+
+.ant-divider-inner-text {
+  font-family: "DM Sans", sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.1em !important;
+  color: var(--slate-400) !important;
+}
+
+/* ══════════════════════════════════════════════════════════
+   23. LIST
+══════════════════════════════════════════════════════════ */
+.ant-list-item {
+  font-family: "DM Sans", sans-serif !important;
+  font-size: 13px !important;
+  border-bottom-color: var(--slate-100) !important;
+}
+
+.ant-list-item-meta-title {
+  font-family: "DM Sans", sans-serif !important;
+  font-weight: 600 !important;
+  color: var(--navy-900) !important;
+}
+
+.ant-list-item-meta-description {
+  font-family: "DM Sans", sans-serif !important;
+  font-size: 12px !important;
+  color: var(--slate-400) !important;
+}
+
+/* anticon */
+.anticon-filter svg {
+  color: var(--gold) !important;
+}
+
+/* ══════════════════════════════════════════════════════════
+   24. FULLCALENDAR (from fullcalendar-theme.css merged here)
+══════════════════════════════════════════════════════════ */
+.fc {
+  font-family: "DM Sans", sans-serif !important;
+  --fc-border-color: var(--slate-100);
+  --fc-today-bg-color: rgba(201, 168, 76, 0.08);
+  --fc-neutral-bg-color: var(--slate-50);
+  --fc-page-bg-color: #fff;
+  --fc-event-bg-color: var(--navy-700);
+  --fc-event-border-color: transparent;
+  --fc-event-text-color: #fff;
+}
+
+.fc .fc-toolbar {
+  padding: 0 0 16px !important;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.fc .fc-toolbar-title {
+  font-family: "Playfair Display", serif !important;
+  font-size: 17px !important;
+  font-weight: 700 !important;
+  color: var(--navy-900) !important;
+}
+.fc .fc-button-group,
+.fc .fc-button {
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+.fc .fc-button {
+  background: var(--slate-50) !important;
+  color: var(--navy-700) !important;
+  font-family: "DM Sans", sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  padding: 5px 12px !important;
+  border-radius: var(--radius-sm) !important;
+  border: 1px solid var(--slate-100) !important;
+  transition: all 0.15s !important;
+}
+.fc .fc-button:hover {
+  background: var(--navy-700) !important;
+  color: #fff !important;
+  border-color: var(--navy-700) !important;
+}
+.fc .fc-button:active,
+.fc .fc-button:focus {
+  background: var(--navy-900) !important;
+  color: var(--gold) !important;
+  border-color: var(--navy-900) !important;
+  box-shadow: none !important;
+}
+.fc .fc-button-primary:not(:disabled).fc-button-active {
+  background: var(--navy-900) !important;
+  color: var(--gold) !important;
+  border-color: var(--navy-900) !important;
+}
+.fc .fc-prev-button,
+.fc .fc-next-button {
+  width: 32px !important;
+  height: 32px !important;
+  padding: 0 !important;
+  border-radius: var(--radius-sm) !important;
+}
+.fc .fc-today-button {
+  background: transparent !important;
+  border: 1px solid var(--gold) !important;
+  color: var(--gold-text) !important;
+  font-weight: 700 !important;
+  border-radius: var(--radius-sm) !important;
+}
+.fc .fc-today-button:hover {
+  background: var(--gold) !important;
+  color: var(--navy-900) !important;
+}
+.fc .fc-today-button:disabled {
+  opacity: 0.45 !important;
+}
+.fc .fc-col-header {
+  background: var(--navy-900);
+  border-radius: 10px 10px 0 0;
+  overflow: hidden;
+}
+.fc .fc-col-header-cell {
+  border: none !important;
+  padding: 10px 0 !important;
+}
+.fc .fc-col-header-cell-cushion {
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  color: rgba(255, 255, 255, 0.6) !important;
+  text-decoration: none !important;
+}
+.fc .fc-day-sat .fc-col-header-cell-cushion,
+.fc .fc-day-sun .fc-col-header-cell-cushion {
+  color: var(--gold) !important;
+}
+.fc td,
+.fc th {
+  border-color: var(--slate-100) !important;
+}
+.fc .fc-daygrid-day {
+  background: #fff;
+  transition: background 0.12s;
+}
+.fc .fc-daygrid-day:hover {
+  background: #f8fafd !important;
+}
+.fc .fc-daygrid-day-number {
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  color: #64748b !important;
+  padding: 6px 8px !important;
+  text-decoration: none !important;
+  width: 26px;
+  height: 26px;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin: 4px;
+  transition: all 0.15s;
+}
+.fc .fc-daygrid-day-number:hover {
+  background: var(--navy-700);
+  color: #fff !important;
+}
+.fc .fc-day-today {
+  background: rgba(201, 168, 76, 0.07) !important;
+}
+.fc .fc-day-today .fc-daygrid-day-number {
+  background: var(--gold) !important;
+  color: var(--navy-900) !important;
+  font-weight: 800 !important;
+}
+.fc .fc-day-sat .fc-daygrid-day-number,
+.fc .fc-day-sun .fc-daygrid-day-number {
+  color: var(--gold) !important;
+}
+.fc .fc-day-other .fc-daygrid-day-number {
+  color: #cbd5e1 !important;
+  font-weight: 400 !important;
+}
+.fc .fc-day-other {
+  background: #fafbfd !important;
+}
+.fc .fc-event {
+  border: none !important;
+  border-radius: 5px !important;
+  padding: 1px 6px !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  font-family: "DM Sans", sans-serif !important;
+  cursor: pointer !important;
+  transition:
+    filter 0.15s,
+    transform 0.1s !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) !important;
+}
+.fc .fc-event:hover {
+  filter: brightness(1.1) !important;
+  transform: translateY(-1px) !important;
+}
+.fc .fc-daygrid-more-link {
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  color: var(--navy-700) !important;
+  padding: 1px 5px !important;
+  border-radius: 4px !important;
+  background: rgba(30, 58, 95, 0.08) !important;
+  text-decoration: none !important;
+  transition:
+    background 0.12s,
+    color 0.12s !important;
+}
+.fc .fc-daygrid-more-link:hover {
+  background: var(--navy-700) !important;
+  color: #fff !important;
+}
+.fc .fc-popover {
+  border: 1px solid var(--slate-100) !important;
+  border-radius: 12px !important;
+  box-shadow: var(--shadow-lg) !important;
+  overflow: hidden !important;
+}
+.fc .fc-popover-header {
+  background: var(--navy-900) !important;
+  padding: 10px 14px !important;
+  border-bottom: none !important;
+}
+.fc .fc-popover-title {
+  font-family: "DM Sans", sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  color: var(--gold) !important;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.fc .fc-scrollgrid {
+  border-color: var(--slate-100) !important;
+  border-radius: 10px !important;
+  overflow: hidden;
+}
+.fc .fc-scroller {
+  overflow: hidden !important;
+}
+.fc .fc-daygrid-day-frame {
+  min-height: 80px !important;
+  padding: 0 !important;
+}
+.fc .fc-daygrid-day-events {
+  padding: 0 3px 3px !important;
+}
+.fc-legend {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 4px 0;
+  flex-wrap: wrap;
+}
+.fc-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #64748b;
+  font-family: "DM Sans", sans-serif;
+}
+.fc-legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+/* ══════════════════════════════════════════════════════════
+   25. MISC UTILITY
+══════════════════════════════════════════════════════════ */
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--slate-200);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--slate-400);
+}
+
+/* Ant layout sider collapse transition */
+.ant-layout-sider {
+  transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  overflow: hidden !important;
+}

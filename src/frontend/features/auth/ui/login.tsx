@@ -122,7 +122,7 @@ function Login() {
 
           <button
             type="submit"
-            className="w-full p-2.5 rounded-md border-none bg-slate-800 text-white font-medium cursor-pointer transition-all duration-150 hover:not-disabled:bg-slate-950 disabled:cursor-not-allowed"
+            className="w-full p-2.5! rounded-md border-none bg-slate-800 text-white font-medium cursor-pointer transition-all duration-150 hover:not-disabled:bg-slate-950 disabled:cursor-not-allowed"
             disabled={loading || pin.length === 0}
           >
             {loading ? "Checking…" : "Unlock"}

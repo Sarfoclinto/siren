@@ -1,3 +1,4 @@
+import Layout from "@frontend/components/layout";
 import { isDev } from "@frontend/config/constants";
 import PageError from "@frontend/features/error";
 import { lazy } from "react";
@@ -26,12 +27,17 @@ const routes: RouteObject[] = [
         element: <Login />,
       },
       {
-        path: "/dashboard",
-        element: <Dashboard />,
-      },
-      {
-        path: "/settings",
-        element: <Settings />,
+        element: <Layout />,
+        children: [
+          {
+            path: "/dashboard",
+            element: <Dashboard />,
+          },
+          {
+            path: "/settings",
+            element: <Settings />,
+          },
+        ],
       },
     ],
   },

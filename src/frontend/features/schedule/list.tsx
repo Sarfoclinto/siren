@@ -5,7 +5,8 @@ import {
   Volume2,
   MessageSquareText,
 } from "lucide-react";
-import type { Schedule } from "@shared/types";
+import type { Schedule } from "../../../../types";
+import { Popconfirm } from "antd";
 
 const DAY_LABELS: Record<string, string> = {
   mon: "Mon",
@@ -108,7 +109,7 @@ function ScheduleRow({
   onToggle: (id: number, enabled: boolean) => void;
 }) {
   function handleDelete() {
-    if (window.confirm(`Delete "${s.label}"?`)) onDelete(s.id);
+    onDelete(s.id);
   }
 
   return (
@@ -120,7 +121,7 @@ function ScheduleRow({
 
       {/* Time */}
       <td>
-        <span className="sl-badge sl-badge-time">
+        <span className="sl-badge sl-badge-time. text-slate-950!">
           <Clock size={11} />
           {s.time}
         </span>
@@ -133,7 +134,7 @@ function ScheduleRow({
             (d) => (
               <span
                 key={d}
-                className={`sl-day ${s.days.includes(d) ? "active" : ""}`}
+                className={`sl-day text-slate-600 ${s.days.includes(d) ? "text-slate-200! bg-slate-800!" : ""}`}
               >
                 {DAY_LABELS[d]}
               </span>
@@ -146,13 +147,13 @@ function ScheduleRow({
       <td>
         <div className="sl-features">
           <span
-            className={`sl-feature ${s.soundId !== null ? "on" : ""}`}
+            className={`sl-feature text-gray-400! ${s.soundId !== null ? "text-slate-900 !on." : ""}`}
             title="Custom sound"
           >
             <Volume2 size={13} />
           </span>
           <span
-            className={`sl-feature ${s.ttsMessage ? "on" : ""}`}
+            className={`sl-feature text-gray-400!  ${s.ttsMessage ? "text-slate-900 !on." : ""}`}
             title={s.ttsMessage || "No announcement"}
           >
             <MessageSquareText size={13} />
@@ -180,13 +181,16 @@ function ScheduleRow({
           >
             <Pencil size={14} />
           </button>
-          <button
-            className="sl-action-btn danger"
-            onClick={handleDelete}
-            title="Delete"
+          <Popconfirm
+            title="Are you sure?"
+            onConfirm={handleDelete}
+            okText="Yes"
+            cancelText="No"
           >
-            <Trash2 size={14} />
-          </button>
+            <button className="sl-action-btn danger" title="Delete">
+              <Trash2 size={14} />
+            </button>
+          </Popconfirm>
         </div>
       </td>
 
@@ -252,7 +256,10 @@ function Toggle({
   onChange: (v: boolean) => void;
 }) {
   return (
-    <label className="toggle" title={checked ? "Enabled" : "Disabled"}>
+    <label
+      className="toggle text-slate-300"
+      title={checked ? "Enabled" : "Disabled"}
+    >
       <input
         type="checkbox"
         checked={checked}
@@ -267,17 +274,17 @@ function Toggle({
         .toggle-track {
           width: 34px; height: 18px;
           border-radius: 9px;
-          background: var(--color-border-strong);
+          background: #cad5e2;
           position: relative;
           transition: background 0.2s;
           display: flex;
           align-items: center;
         }
-        .toggle-track.on { background: var(--color-accent); }
+        .toggle-track.on { background: #0f172b; }
         .toggle-thumb {
           width: 12px; height: 12px;
           border-radius: 50%;
-          background: #fff;
+          background: #c9a84c;
           position: absolute;
           left: 3px;
           transition: transform 0.2s;

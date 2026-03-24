@@ -1,0 +1,123 @@
+/* Import premium fonts */
+
+/* ─── Sidebar Menu Overrides ─────────────────────────────── */
+
+/* Remove default Ant Design menu borders / backgrounds */
+.cms-sider.ant-menu {
+  border-inline-end: none !important;
+  padding: 0 0 12px 0;
+}
+
+.cms-sider .ant-menu-item,
+.cms-sider .ant-menu-submenu-title {
+  border-radius: 8px !important;
+  margin-inline: 8px !important;
+  width: calc(100% - 16px) !important;
+  font-family: "DM Sans", sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.01em;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease !important;
+  color: black !important;
+}
+
+/* Selected item - gold left accent line */
+.cms-sider .ant-menu-item-selected {
+  background: rgba(201, 168, 76, 0.12) !important;
+  color: #ffffff !important;
+  position: relative;
+}
+
+.cms-sider .ant-menu-item-selected::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 20%;
+  height: 60%;
+  width: 3px;
+  border-radius: 0 3px 3px 0;
+  background: #c9a84c;
+  transform: translateX(-8px);
+}
+
+/* Submenu arrow color */
+.cms-sider .ant-menu-submenu-arrow {
+  color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.cms-sider
+  .ant-menu-submenu-open
+  > .ant-menu-submenu-title
+  .ant-menu-submenu-arrow {
+  color: #c9a84c !important;
+}
+
+/* Submenu title when open */
+.cms-sider .ant-menu-submenu-open > .ant-menu-submenu-title {
+  color: #000000 !important;
+  background: rgba(255, 255, 255, 0.06) !important;
+}
+
+/* Sub menu panel */
+.cms-sider .ant-menu-sub {
+  background: rgba(0, 0, 0, 0.18) !important;
+  border-radius: 8px;
+  margin: 2px 8px 4px !important;
+  padding: 4px 0 !important;
+}
+
+.cms-sider .ant-menu-sub .ant-menu-item {
+  margin-inline: 6px !important;
+  width: calc(100% - 12px) !important;
+  font-size: 12.5px !important;
+  padding-left: 16px !important;
+  height: 36px !important;
+  line-height: 36px !important;
+}
+
+/* Icon color */
+.cms-sider .ant-menu-item .ant-menu-item-icon,
+.cms-sider .ant-menu-submenu-title .ant-menu-item-icon {
+  color: rgba(255, 255, 255, 0.45) !important;
+  transition: color 0.15s ease !important;
+}
+
+.cms-sider .ant-menu-item-selected .ant-menu-item-icon,
+.cms-sider
+  .ant-menu-submenu-open
+  > .ant-menu-submenu-title
+  .ant-menu-item-icon {
+  color: #c9a84c !important;
+}
+
+/* Hover icon */
+.cms-sider .ant-menu-item:hover .ant-menu-item-icon,
+.cms-sider .ant-menu-submenu-title:hover .ant-menu-item-icon {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* ─── Scrollbar ──────────────────────────────────────────── */
+.cms-sider::-webkit-scrollbar {
+  width: 4px;
+}
+.cms-sider::-webkit-scrollbar-track {
+  background: transparent;
+}
+.cms-sider::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+}
+
+/* ─── Content area ───────────────────────────────────────── */
+body {
+  font-family: "DM Sans", sans-serif;
+  background: #f4f6fa;
+}
+
+/* Collapse transition */
+.ant-layout-sider {
+  transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  overflow: hidden !important;
+}

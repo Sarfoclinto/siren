@@ -1,16 +1,10 @@
 import { useState, useEffect, useCallback } from "react";
-import {
-  BellRing,
-  CalendarDays,
-  Settings as SettingsIcon,
-  CircleDot,
-} from "lucide-react";
+import { BellRing } from "lucide-react";
 import { toast } from "sonner";
 import { useApi } from "@frontend/hooks/useApi";
 import type { Schedule, ScheduleCreate, TriggerEvent } from "../../../../types";
 import { ScheduleList } from "../schedule/list";
 import { ScheduleForm } from "../schedule/form";
-import { useNavigate } from "react-router-dom";
 
 function Dashboard() {
   const [schedules, setSchedules] = useState<Schedule[]>([]);
@@ -20,7 +14,6 @@ function Dashboard() {
 
   const api = useApi();
 
-  const navigate = useNavigate();
 
   const load = useCallback(async () => {
     try {
@@ -103,28 +96,6 @@ function Dashboard() {
 
   return (
     <div className="db-layout">
-      {/* ── Sidebar ── */}
-      <aside className="db-sidebar">
-        <div className="db-brand">
-          <BellRing size={20} strokeWidth={1.5} className="text-slate-900" />
-          <span className="text-slate-950">School Siren</span>
-        </div>
-
-        <nav className="db-nav">
-          <button className="db-nav-item active text-slate-900!">
-            <CalendarDays size={16} /> Schedules
-          </button>
-          <button className="db-nav-item" onClick={() => navigate("/settings")}>
-            <SettingsIcon size={16} /> Settings
-          </button>
-        </nav>
-
-        <div className="db-status">
-          <CircleDot size={12} className="status-dot" />
-          <span>Scheduler running</span>
-        </div>
-      </aside>
-
       {/* ── Main ── */}
       <main className="db-main">
         <header className="db-header">
