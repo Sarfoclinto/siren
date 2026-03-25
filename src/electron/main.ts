@@ -6,6 +6,7 @@ import {
   ipcMain,
   dialog,
   nativeImage,
+  // protocol
 } from "electron";
 import path from "path";
 import fs from "fs";
@@ -156,9 +157,30 @@ function registerHandlers(): void {
   // Sounds ─────────────────────────────────────────────────────────────────────
 
   ipcMain.handle(IPC.SOUND_LIST, () => wrap(() => soundDb.list()));
+  // ipcMain.handle(IPC.SOUND_DELETE, (_e, id: number) =>
+  //   wrap(() => soundDb.delete(id)),
+  // );
   ipcMain.handle(IPC.SOUND_DELETE, (_e, id: number) =>
-    wrap(() => soundDb.delete(id)),
+    wrap(async () => {
+      const sound = await soundDb.getById(id);
+      if (!sound) throw new Error("Sound not found");
+
+      const dir = app.isPackaged
+        ? path.join(process.resourcesPath, "assets", "sounds")
+        : path.join(app.getAppPath(), "assets", "sounds");
+
+      const filePath = path.join(dir, sound.filename);
+
+      try {
+        await fs.promises.unlink(filePath);
+      } catch {
+        // file might already be gone — ignore
+      }
+
+      return soundDb.delete(id);
+    }),
   );
+  
   ipcMain.handle(IPC.SOUND_TEST, (_e, filename: string, vol: number) =>
     wrap(() => {
       return audioController.play(filename, vol);
@@ -186,6 +208,9 @@ function registerHandlers(): void {
       return soundDb.add(name, filename);
     }),
   );
+  ipcMain.handle(IPC.SOUND_SET_DEFAULT, (_e, id: number) => {
+    return wrap(() => soundDb.setDefault(id));
+  });
 
   // TTS ────────────────────────────────────────────────────────────────────────
 
@@ -224,6 +249,15 @@ function registerHandlers(): void {
   });
   ipcMain.handle(IPC.APP_VERSION, () => app.getVersion());
 }
+
+// Register protocol
+// const registerProtocol = () => {
+//   protocol.registerFileProtocol("asset", (request, callback) => {
+//     const url = request.url.replace(/^asset:\/\//, "");
+//     callback({ path: path.join(__dirname, "../dist", url) });
+//   });
+
+// }
 
 // ─── Lifecycle ────────────────────────────────────────────────────────────────
 

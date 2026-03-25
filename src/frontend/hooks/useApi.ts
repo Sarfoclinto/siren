@@ -38,6 +38,8 @@ export function useApi() {
     deleteSound: (id: number) => call<void>(() => window.api.soundDelete(id)),
     testSound: (filename: string, vol: number) =>
       call<void>(() => window.api.soundTest(filename, vol)),
+    setDefaultSound: (id: number) =>
+      call<void>(() => window.api.soundSetDefault(id)),
 
     // TTS
     speak: (text: string, opts?: TTSSpeakOptions) =>

@@ -13,12 +13,13 @@ import { toast } from "sonner";
 import { useApi } from "@frontend/hooks/useApi";
 import type { AppSettings, TTSVoice, Sound } from "../../../../types";
 import { useNavigate } from "react-router-dom";
+import { cn } from "@frontend/lib/utils";
 
 function Settings() {
   const api = useApi();
   const navigate = useNavigate();
 
-  const [settings, setSettings] = useState<AppSettings | null>(null);
+  const [, setSettings] = useState<AppSettings | null>(null);
   const [voices, setVoices] = useState<TTSVoice[]>([]);
   const [sounds, setSounds] = useState<Sound[]>([]);
   const [loading, setLoading] = useState(true);
@@ -149,7 +150,7 @@ function Settings() {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center h-screen bg-gray-50 dark:bg-gray-900">
+      <div className="flex items-center justify-center h-screen">
         <Loader2 className="animate-spin w-6 h-6 text-gray-500" />
       </div>
     );
@@ -163,7 +164,11 @@ function Settings() {
           <ArrowLeft size={16} /> Back
         </button>
         <h1 className="s-title">Settings</h1>
-        <button className="s-save-btn" onClick={handleSave} disabled={saving}>
+        <button
+          className="flex items-center gap-2 py-2 px-4 rounded-md border-none bg-slate-900 text-slate-100 text-sm hover:bg-slate-800 cursor-pointer disabled:cursor-not-allowed transition-all duration-150"
+          onClick={handleSave}
+          disabled={saving}
+        >
           {saving ? (
             <>
               <Loader2 size={14} className="spin" /> Saving…
@@ -178,8 +183,8 @@ function Settings() {
 
       <div className="s-body">
         {/* ── Audio ── */}
-        <Section icon={<Volume2 size={16} />} title="Audio">
-          <Field label={`Default volume · ${volume}%`}>
+        <Section icon={<Volume2 size={16} />} title="Audio" className="">
+          <Field className="" label={`Default volume · ${volume}%`}>
             <div className="s-row">
               <input
                 type="range"
@@ -206,7 +211,7 @@ function Settings() {
             </div>
           </Field>
 
-          <Field label="Default bell sound">
+          <Field className="" label="Default bell sound">
             <select
               className="sf-input"
               value={defaultSound ?? ""}
@@ -352,7 +357,11 @@ function Settings() {
                 autoComplete="new-password"
               />
             </Field>
-            <button type="submit" className="s-pin-btn" disabled={pinSaving}>
+            <button
+              type="submit"
+              className="self-start rounded-md py-2 px-4 text-xs cursor-pointer transition-all duration-150 bg-slate-900 hover:bg-slate-800 disabled:cursor-not-allowed text-slate-200"
+              disabled={pinSaving}
+            >
               {pinSaving ? "Updating…" : "Update PIN"}
             </button>
           </form>
@@ -367,7 +376,6 @@ function Settings() {
           display: flex;
           flex-direction: column;
           height: 100vh;
-          background: var(--color-bg-page);
         }
         .s-header {
           display: flex;
@@ -412,7 +420,8 @@ function Settings() {
           background: var(--color-bg-card);
           border: 1px solid var(--color-border);
           border-radius: var(--radius-lg);
-          overflow: hidden;
+          min-height: "fit-content";
+          // overflow: hidden;
         }
         .s-section-header {
           display: flex; align-items: center; gap: 8px;
@@ -483,13 +492,15 @@ function Section({
   icon,
   title,
   children,
+  className,
 }: {
   icon: React.ReactNode;
   title: string;
   children: React.ReactNode;
+  className?: string;
 }) {
   return (
-    <div className="s-section">
+    <div className={cn("s-section", className)}>
       <div className="s-section-header">
         {icon} {title}
       </div>
@@ -501,12 +512,14 @@ function Section({
 function Field({
   label,
   children,
+  className,
 }: {
   label: string;
   children: React.ReactNode;
+  className?: string;
 }) {
   return (
-    <div className="sf-field">
+    <div className={cn("sf-field", className)}>
       <span className="sf-label">{label}</span>
       {children}
     </div>

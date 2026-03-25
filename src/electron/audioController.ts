@@ -2,11 +2,13 @@ import path from "path";
 import fs from "fs";
 import { app, BrowserWindow } from "electron";
 import { createRequire } from "module";
+// import player from "play-sound";
 
 // ─── node-speaker (lazy load) ─────────────────────────────────────────────────
 // Loaded lazily so the app still boots if the native addon wasn't compiled.
 // Run `pnpm rebuild-native` to compile it after install.
 
+// const audioPlayer = player({});
 let speakerAvailable = false;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 let SpeakerCtor: any = null;
@@ -130,18 +132,22 @@ function playViaRenderer(
   volume: number,
   win: BrowserWindow,
 ): void {
-  const fileUrl = `file://${soundPath.replace(/\\/g, "/")}`;
-  win.webContents
-    .executeJavaScript(
-      `
-    (() => {
-      const a = new Audio(${JSON.stringify(fileUrl)});
-      a.volume = ${volume / 100};
-      a.play().catch(console.error);
-    })();
-  `,
-    )
-    .catch(console.error);
+  // const fileUrl = `file://${soundPath.replace(/\\/g, "/")}`;
+  // win.webContents
+  //   .executeJavaScript(
+  //     `
+  //   (() => {
+  //     const a = new Audio(${JSON.stringify(fileUrl)});
+  //     a.volume = ${volume / 100};
+  //     a.play().catch(console.error);
+  //   })();
+  // `,
+  //   )
+  //   .catch(console.error);
+  const buffer = fs.readFileSync(soundPath);
+  // const meta = parseWav(buffer);
+  // if (!meta) throw new Error("Cannot parse WAV header");
+  win.webContents.send("playSound", { buffer, volume });
 }
 
 // ─── AudioController ──────────────────────────────────────────────────────────
@@ -163,7 +169,9 @@ export class AudioController {
 
     console.log(`[Audio] Playing "${filename}" vol=${volume}`);
 
-    if (speakerAvailable) {
+    const ext = path.extname(filename).toLowerCase();
+
+    if (speakerAvailable && ext === ".wav") {
       try {
         await playViaSpeaker(soundPath, volume);
         return;
@@ -175,11 +183,22 @@ export class AudioController {
       }
     }
 
+    // MP3 and other goes here
     if (this.win) {
       playViaRenderer(soundPath, volume, this.win);
     } else {
       console.error("[Audio] No playback method available");
     }
+    // return new Promise((resolve, reject) => {
+    //   audioPlayer.play(soundPath, (err) => {
+    //     if (err) {
+    //       console.error("[Play-sound] External player failed: ", err);
+    //       reject(err);
+    //     } else {
+    //       resolve();
+    //     }
+    //   });
+    // });
   }
 
   get nativeSpeakerAvailable(): boolean {

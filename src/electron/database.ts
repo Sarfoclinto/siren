@@ -289,6 +289,15 @@ export const soundDb = {
       .prepare("DELETE FROM sounds WHERE id = ? AND is_default = 0")
       .run(id);
   },
+
+  setDefault(id: number): void {
+    const db = getDb();
+    const tx = db.transaction(() => {
+      db.prepare("UPDATE sounds SET is_default = 0").run();
+      db.prepare("UPDATE sounds SET is_default = 1 WHERE id = ?").run(id);
+    });
+    tx();
+  },
 };
 
 // ─── Settings queries ─────────────────────────────────────────────────────────

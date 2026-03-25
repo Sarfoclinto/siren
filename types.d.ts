@@ -26,6 +26,7 @@ export interface Sound {
   id: number;
   name: string;
   filename: string; // relative to assets/sounds/
+  durationSeconds?: number | null; // populated when known
   isDefault: boolean;
   createdAt: string;
 }

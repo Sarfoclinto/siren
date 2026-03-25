@@ -7,97 +7,71 @@
   --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "DM Mono", ui-monospace, monospace;
 
-  /* Brand palette — deep navy + amber accent */
-  --color-brand-50:   #eef2ff;
-  --color-brand-100:  #e0e7ff;
-  --color-brand-200:  #c7d2fe;
-  --color-brand-500:  #4361ee;
-  --color-brand-600:  #3451d1;
-  --color-brand-700:  #2740b8;
-  --color-brand-900:  #1a2878;
+  /* Brand — vivid blue that pops on both light and dark */
+  --color-brand:         #2563eb;
+  --color-brand-hover:   #1d4ed8;
+  --color-brand-light:   #eff6ff;
+  --color-brand-border:  #bfdbfe;
 
-  --color-amber-400:  #fbbf24;
-  --color-amber-500:  #f59e0b;
+  /* Navy — used as sidebar / primary dark surface */
+  --color-navy-950:  #020617;
+  --color-navy-900:  #0f172a;
+  --color-navy-800:  #1e293b;
+  --color-navy-700:  #334155;
+  --color-navy-600:  #475569;
 
-  /* Surfaces */
-  --color-surface-0:  #ffffff;
-  --color-surface-1:  #f8f9fc;
-  --color-surface-2:  #f1f3f9;
-  --color-surface-3:  #e8ecf4;
+  /* Page surfaces — light */
+  --color-page:      #f8fafc;   /* slate-50  */
+  --color-card:      #ffffff;
+  --color-card-alt:  #f1f5f9;   /* slate-100 */
+  --color-border:    #e2e8f0;   /* slate-200 */
+  --color-border-strong: #cbd5e1; /* slate-300 */
 
-  /* Text */
-  --color-ink-900:  #0d1117;
-  --color-ink-700:  #2d3550;
-  --color-ink-500:  #5a6384;
-  --color-ink-300:  #9aa3be;
-  --color-ink-100:  #d4d9ea;
+  /* Text on light surfaces */
+  --color-text-primary:   #0f172a;  /* slate-900 */
+  --color-text-secondary: #475569;  /* slate-600 */
+  --color-text-muted:     #94a3b8;  /* slate-400 */
+
+  /* Text on dark/navy surfaces */
+  --color-text-on-dark:        #f1f5f9;  /* slate-100 */
+  --color-text-on-dark-muted:  #94a3b8;  /* slate-400 */
 
   /* Semantic */
-  --color-success:  #16a34a;
-  --color-danger:   #dc2626;
-  --color-warning:  #d97706;
-
-  /* Radii */
-  --radius-sm:  4px;
-  --radius-md:  8px;
-  --radius-lg:  12px;
-  --radius-xl:  16px;
-  --radius-2xl: 24px;
+  --color-success:        #16a34a;
+  --color-success-light:  #f0fdf4;
+  --color-danger:         #dc2626;
+  --color-danger-light:   #fef2f2;
+  --color-warning:        #d97706;
+  --color-warning-light:  #fffbeb;
 }
 
-/* ── Dark mode ── */
-.dark {
-  --color-surface-0:  #0f1218;
-  --color-surface-1:  #161b27;
-  --color-surface-2:  #1e2538;
-  --color-surface-3:  #28304a;
-
-  --color-ink-900:  #eef1fa;
-  --color-ink-700:  #b8c0d8;
-  --color-ink-500:  #7a84a0;
-  --color-ink-300:  #444f6a;
-  --color-ink-100:  #2a3050;
-}
-
-/* ── Base ── */
+/* ── Base resets ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
 html, body, #root { height: 100%; overflow: hidden; }
 
 body {
   font-family: var(--font-sans);
   font-size: 14px;
   line-height: 1.6;
-  color: var(--color-ink-700);
-  background: var(--color-surface-1);
+  color: var(--color-text-primary);
+  background: var(--color-page);
   -webkit-font-smoothing: antialiased;
 }
 
 /* ── Scrollbar ── */
-::-webkit-scrollbar        { width: 5px; }
+::-webkit-scrollbar        { width: 5px; height: 5px; }
 ::-webkit-scrollbar-track  { background: transparent; }
-::-webkit-scrollbar-thumb  { background: var(--color-ink-100); border-radius: 3px; }
+::-webkit-scrollbar-thumb  { background: var(--color-border-strong); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-text-muted); }
 
 /* ── Focus ── */
 :focus-visible {
-  outline: 2px solid var(--color-brand-500);
+  outline: 2px solid var(--color-brand);
   outline-offset: 2px;
   border-radius: 4px;
 }
 
 button, input, select, textarea { font-family: inherit; }
 
-/* ── Custom Tailwind utilities ── */
-@layer utilities {
-  .text-ink-900  { color: var(--color-ink-900); }
-  .text-ink-700  { color: var(--color-ink-700); }
-  .text-ink-500  { color: var(--color-ink-500); }
-  .text-ink-300  { color: var(--color-ink-300); }
-  .text-brand    { color: var(--color-brand-500); }
-  .bg-surface-0  { background: var(--color-surface-0); }
-  .bg-surface-1  { background: var(--color-surface-1); }
-  .bg-surface-2  { background: var(--color-surface-2); }
-  .bg-surface-3  { background: var(--color-surface-3); }
-  .border-ink-100 { border-color: var(--color-ink-100); }
-  .border-ink-300 { border-color: var(--color-ink-300); }
-}
+/* ── Audio element hidden globally ── */
+audio { display: none; }

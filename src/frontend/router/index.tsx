@@ -13,6 +13,7 @@ const Home = lazy(() => import("@frontend/features/home/page"));
 const Login = lazy(() => import("@frontend/features/auth/ui/login"));
 const Dashboard = lazy(() => import("@frontend/features/dashboard/page"));
 const Settings = lazy(() => import("@frontend/features/settings/page"));
+const Sounds = lazy(() => import("@frontend/features/sounds/index"));
 
 const routes: RouteObject[] = [
   {
@@ -36,6 +37,10 @@ const routes: RouteObject[] = [
           {
             path: "/settings",
             element: <Settings />,
+          },
+          {
+            path: "/sounds",
+            element: <Sounds />,
           },
         ],
       },

@@ -128,3 +128,7 @@
     @apply font-sans;
     }
 }
+
+.debug{
+  border: 1px solid red;
+}

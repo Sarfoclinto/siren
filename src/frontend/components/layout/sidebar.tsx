@@ -59,6 +59,11 @@ const SidebarContent = ({ collapsed }: { collapsed: boolean }) => {
       label: <SidebarLabel to="/settings">Settings</SidebarLabel>,
       icon: <Settings2 className="size-3.75" />,
     },
+    {
+      key: "/sounds",
+      label: <SidebarLabel to="/sounds">Sounds</SidebarLabel>,
+      icon: <BellRing className="size-3.75" />,
+    },
   ];
   return (
     <div

@@ -12,6 +12,8 @@ export const IPC = {
   SOUND_ADD: "sound:add",
   SOUND_DELETE: "sound:delete",
   SOUND_TEST: "sound:test",
+  SOUND_SET_DEFAULT: "sound:setDefault",
+  PLAY_SOUND: "playSound",
 
   TTS_SPEAK: "tts:speak",
   TTS_VOICES: "tts:voices",

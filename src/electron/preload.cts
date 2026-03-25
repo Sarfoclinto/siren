@@ -38,6 +38,8 @@ const api = {
     ipcRenderer.invoke(IPC.SOUND_DELETE, id) as Promise<IPCResult>,
   soundTest: (filename: string, vol: number) =>
     ipcRenderer.invoke(IPC.SOUND_TEST, filename, vol) as Promise<IPCResult>,
+  soundSetDefault: (id: number) =>
+    ipcRenderer.invoke(IPC.SOUND_SET_DEFAULT, id) as Promise<IPCResult>,
 
   // TTS
   ttsSpeak: (text: string, opts: TTSSpeakOptions) =>
@@ -67,6 +69,9 @@ const api = {
       cb(payload);
     ipcRenderer.on(IPC.EVENT_TRIGGERED, handler);
     return () => ipcRenderer.off(IPC.EVENT_TRIGGERED, handler);
+  },
+  playSound: (cb: (data: { buffer: ArrayBuffer; volume: number }) => void) => {
+    ipcRenderer.on(IPC.PLAY_SOUND, (_, data) => cb(data));
   },
 };
 
